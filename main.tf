@@ -41,7 +41,7 @@ resource "aws_instance" "jenkins_server" {
   instance_type          = var.ec2_instance_type
   subnet_id              = aws_subnet.publicsubnet.id
   vpc_security_group_ids = [aws_security_group.my_security_group.id]
-  key_name               = aws_key_pair.generated_key.key_name # Reference the key pair resource
+  key_name               = "OpenSSH-Frankfurt" #aws_key_pair.generated_key.key_name         # Reference the key pair resource
   user_data              = file("installJenkins.sh")
   tags = {
     Name = "jenkins_server"
@@ -53,7 +53,7 @@ resource "aws_instance" "deploy_server" {
   instance_type          = var.ec2_instance_type
   subnet_id              = aws_subnet.publicsubnet.id
   vpc_security_group_ids = [aws_security_group.my_security_group.id]
-  key_name               = aws_key_pair.generated_key.key_name # Reference the key pair resource
+  key_name               = "OpenSSH-Frankfurt" #aws_key_pair.generated_key.key_name         # Reference the key pair resource
   tags = {
     Name = "deploy_server"
   }
