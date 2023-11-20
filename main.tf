@@ -54,6 +54,7 @@ resource "aws_instance" "deploy_server" {
   subnet_id              = aws_subnet.publicsubnet.id
   vpc_security_group_ids = [aws_security_group.my_security_group.id]
   key_name               = "OpenSSH-Frankfurt" #aws_key_pair.generated_key.key_name         # Reference the key pair resource
+  user_data              = file("installNginx.sh")
   tags = {
     Name = "deploy_server"
   }
