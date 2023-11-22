@@ -27,6 +27,14 @@ pipeline {
                 }
             }
         }
-    }
+
+        stage('Copy And Reload Nginx') {
+              steps {
+                  script {
+                      sh 'cp index.html /var/www/html'
+                      sh 'sudo service nginx reload'
+                  }
+              }
+        }
     
 }
