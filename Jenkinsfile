@@ -20,10 +20,10 @@ pipeline {
             }
         }
         
-        stage('Change user to godlike') {
+        stage('Show Ip Address') {
             steps {
                 script {
-                    echo "123"
+                    sh 'ip address'
                 }
             }
         }
