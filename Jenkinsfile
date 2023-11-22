@@ -38,13 +38,13 @@ pipeline {
         }
 
         stage('Print Webhook Payload') {
-            when {
-                expression {
-                    // Add a condition to run this stage only if triggered by a webhook
-                    currentBuild.rawBuild.getCauses().any { cause ->
-                        cause.class.toString() == 'org.jenkinsci.plugins.github.webhook.GitHubWebHookCause'
-                    }
-                }
+            // when {
+            //     expression {
+            //         // Add a condition to run this stage only if triggered by a webhook
+            //         currentBuild.rawBuild.getCauses().any { cause ->
+            //             cause.class.toString() == 'org.jenkinsci.plugins.github.webhook.GitHubWebHookCause'
+            //         }
+            //     }
             }
             steps {
                 script {
