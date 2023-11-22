@@ -45,7 +45,7 @@ pipeline {
             //             cause.class.toString() == 'org.jenkinsci.plugins.github.webhook.GitHubWebHookCause'
             //         }
             //     }
-            }
+            //}
             steps {
                 script {
                     def payload = currentBuild.rawBuild.getCauses().find { cause ->
