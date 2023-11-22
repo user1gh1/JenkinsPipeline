@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent nginx
     
     stages {
         stage('Look whats in here') {
