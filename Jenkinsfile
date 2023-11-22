@@ -12,10 +12,10 @@ pipeline {
             }
         }
         
-        stage('List / contents') {
+        stage('List Whoami') {
             steps {
                 script {
-                    sh 'ls -la /'
+                    sh 'whoami'
                 }
             }
         }
