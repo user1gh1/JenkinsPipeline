@@ -12,7 +12,15 @@ pipeline {
                 [key: 'repo_slug', value: '$.repository.full_name'],
                 [key: 'clone_url', value: '$.repository.url']
             ],
-            // Other parameters remain the same
+                causeString: '$committer_name pushed tag $tag to $clone_url referencing $commit',
+    
+                token: 'abc123',
+    
+                printContributedVariables: true,
+                printPostContent: true,
+                
+                regexpFilterText: '$ref',
+                regexpFilterExpression: '^refs/tags/.*'
         )
     }
 
