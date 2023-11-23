@@ -22,14 +22,13 @@ pipeline {
                 printPostContent: true,
                 
                 regexpFilterText: '$ref',
-                // regexpFilterExpression: '^refs/tags/.*'
+                regexpFilterExpression: '^refs/tags/.*'
         )
     }
 
     stages {
         stage("Prepare") {
             steps {
-                deleteDir()
                 sh '''
                     echo git clone $clone_url
                     echo git checkout $commit
