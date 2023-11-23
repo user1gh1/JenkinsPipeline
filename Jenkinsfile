@@ -2,7 +2,8 @@
 //     agent {
 //         label 'nginx'
 //     }
-    
+
+
 //     stages {
 //         stage('Look whats in here') {
 //             steps {
