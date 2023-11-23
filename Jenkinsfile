@@ -11,7 +11,7 @@ pipeline {
                 [key: 'committer_email', value: '$.repository.owner.email'],
                 [key: 'repo_slug', value: '$.repository.full_name'],
                 [key: 'clone_url', value: '$.repository.url'],
-                [key: 'url', values: '$.repository.url'],
+                //[key: 'url', values: '$.repository.url'],
             ],
                 causeString: '$committer_name pushed tag $tag to $clone_url referencing $commit',
     
