@@ -15,6 +15,8 @@ pipeline {
                 causeString: '$committer_name pushed tag $tag to $clone_url referencing $commit',
     
                 token: 'abc123',
+                tokenCredentialId: '',
+
     
                 printContributedVariables: true,
                 printPostContent: true,
