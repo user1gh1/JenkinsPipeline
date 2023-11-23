@@ -20,7 +20,7 @@ pipeline {
                 printPostContent: true,
                 
                 regexpFilterText: '$ref',
-                regexpFilterExpression: '^refs/tags/.*'
+                // regexpFilterExpression: '^refs/tags/.*'
         )
     }
 
