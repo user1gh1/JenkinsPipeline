@@ -16,7 +16,7 @@ pipeline {
                 [key: 'committer_email', value: '$.repository.owner.email'],
                 [key: 'repo_slug', value: '$.repository.full_name'],
                 [key: 'clone_url', value: '$.repository.url'],
-                [key: 'action', value: '$.action']
+                // [key: 'action', value: '$.action']
                 // [key: '', value: '$.repository.owner.name'],
                 //[key: 'url', values: '$.repository.url'],
             ],
@@ -30,7 +30,11 @@ pipeline {
                 printPostContent: true,
                 
                 regexpFilterText: '$.action',
-                regexpFilterExpression: 'opened',
+                regexpFilterExpression: 'closed',
+
+                regexpFilterText: '$.ref',
+                regexpFilterExpression: 'refs/heads/dev' // Filter for the DEV branch
+
         )
     }
 
