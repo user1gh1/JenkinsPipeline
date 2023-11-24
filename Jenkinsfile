@@ -32,7 +32,7 @@ pipeline {
 //                regexpFilterText: '$.action',
 //                regexpFilterExpression: 'opened',
 
-                regexpFilterText: '.*',
+                regexpFilterText: '$.*',
                 regexpFilterExpression: '"action": "opened"' ,
 
         )
