@@ -16,6 +16,7 @@ pipeline {
                 [key: 'committer_email', value: '$.repository.owner.email'],
                 [key: 'repo_slug', value: '$.repository.full_name'],
                 [key: 'clone_url', value: '$.repository.url'],
+                [key: 'action', value: '$.action']
                 // [key: '', value: '$.repository.owner.name'],
                 //[key: 'url', values: '$.repository.url'],
             ],
@@ -28,8 +29,8 @@ pipeline {
                 printContributedVariables: true,
                 printPostContent: true,
                 
-                regexpFilterText: '$ref',
-                regexpFilterExpression: '',
+                regexpFilterText: '$.action',
+                regexpFilterExpression: 'opened',
         )
     }
 
