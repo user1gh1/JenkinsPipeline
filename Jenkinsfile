@@ -30,10 +30,10 @@ pipeline {
                 printPostContent: true,
                 
                 regexpFilterText: '$.action',
-                regexpFilterExpression: 'closed',
+                regexpFilterExpression: 'opened',
 
-                regexpFilterText: '$.ref',
-                regexpFilterExpression: 'refs/heads/dev' // Filter for the DEV branch
+                regexpFilterText: '$.head_ref',
+                regexpFilterExpression: 'dev' // Filter for the DEV branch
 
         )
     }
