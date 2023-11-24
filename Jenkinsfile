@@ -5,6 +5,9 @@ pipeline {
 
     triggers {
         GenericTrigger(
+            genericHeaderVariables: [
+                [key: 'event', regexpFilter: '$.X-GitHub-Event']
+            ], 
             genericVariables: [
                 [key: 'ref', value: '$.ref'],
                 [key: 'before', value: '$.before'],
@@ -16,8 +19,8 @@ pipeline {
                 // [key: '', value: '$.repository.owner.name'],
                 //[key: 'url', values: '$.repository.url'],
             ],
-                //causeString: '$committer_name pushed to $clone_url referencing $commit',
-                causeString: ''
+                causeString: '$committer_name pushed $event to $clone_url referencing $commit',
+    
                 token: 'abc1235',
                 tokenCredentialId: '',
 
@@ -27,7 +30,6 @@ pipeline {
                 
                 regexpFilterText: '$ref',
                 regexpFilterExpression: '',
-                pwd tmp:true
         )
     }
 
@@ -39,6 +41,7 @@ pipeline {
                     ls -la
                     echo $committer_name
                     export USR_VAR="$committer_name"
+                    echo $USR_VAR
                     sed -i "0,/WORLD/s//${USR_VAR:-WORLD}/" index.html
                     sleep 1
                     ls -la
