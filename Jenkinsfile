@@ -13,6 +13,7 @@ pipeline {
                 [key: 'committer_email', value: '$.repository.owner.email'],
                 [key: 'repo_slug', value: '$.repository.full_name'],
                 [key: 'clone_url', value: '$.repository.url'],
+                // [key: '', value: '$.repository.owner.name'],
                 //[key: 'url', values: '$.repository.url'],
             ],
                 causeString: '$committer_name pushed tag $tag to $clone_url referencing $commit',
@@ -35,21 +36,22 @@ pipeline {
                 sh '''
                     pwd
                     ls -la
-                    echo git clone $clone_url
-                    echo git checkout $commit
+                    echo $committer_name
+                    export USR_VAR="$committer_name"
+                    echo $USR_VAR
                     sleep 1
                     ls -la
+                    mv index.html /var/www/html/
                 '''
             }
         }
 
-        stage("Build") {
+        stage("Reload Nginx") {
             steps {
                 sh '''
-                    echo Validate that artifact version is $tag
-                    echo Or, set artifact version to $tag, without committing it or pushing!
-                    echo ./gradlew build
-                    sleep 2
+                    echo $committer_name
+                    echo "$committer_name"
+                    sudo service nginx reload
                 '''
             }
         }
