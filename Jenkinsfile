@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent { 
+        label 'Nginxserver' 
+    }
 
     triggers {
         GenericTrigger(
@@ -31,9 +33,12 @@ pipeline {
         stage("Prepare") {
             steps {
                 sh '''
+                    pwd
+                    ls -la
                     echo git clone $clone_url
                     echo git checkout $commit
                     sleep 1
+                    ls -la
                 '''
             }
         }
