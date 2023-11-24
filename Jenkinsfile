@@ -29,11 +29,11 @@ pipeline {
                 printContributedVariables: true,
                 printPostContent: true,
                 
-                regexpFilterText: '$.action',
-                regexpFilterExpression: 'opened',
+//                regexpFilterText: '$.action',
+//                regexpFilterExpression: 'opened',
 
-                regexpFilterText: '$.head_ref',
-                regexpFilterExpression: 'dev' // Filter for the DEV branch
+                regexpFilterText: '',
+                regexpFilterExpression: '"action": "opened"' ,
 
         )
     }
